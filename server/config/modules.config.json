@@ -1,0 +1,20 @@
+{
+	"perfil": {
+		"ctrlFileName":"main.ctrl",
+		"ctrlClassName":"MainCtrl",
+		"modFileName":"profile.mod",
+		"modClassName":"ProfileMod"
+	},
+	"usuario": {
+		"ctrlFileName":"Main.ctrl",
+		"ctrlClassName":"MainCtrl",
+		"modFileName":"user.mod",
+		"modClassName":"UserMod"
+	},
+	"bitacora": {
+		"ctrlFileName":"Main.ctrl",
+		"ctrlClassName":"MainCtrl",
+		"modFileName":"bitacora.mod",
+		"modClassName":"BitacoraMod"
+	}
+}

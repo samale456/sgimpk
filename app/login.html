@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta http-equiv="Pragma" content="no-cache">
+	<meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>SGIM | Iniciar Sesión</title>
+
+	<!-- Tell the browser to be responsive to screen width -->
+	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+	<!-- Icono de la app -->
+	<link rel="icon" type="image/png" href="app/img/logo-32x32.png" />
+
+	<!-- Bootstrap Core CSS -->
+	<link href="plugins/bootstrap-3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Font Awesome -->
+	<link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+	<!-- Ionicons -->
+	<!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">-->
+
+	<!-- Theme style -->
+	<link rel="stylesheet" href="adminlte/dist/css/AdminLTE.css">
+
+	<!-- iCheck -->
+	<link rel="stylesheet" href="plugins/iCheck/square/blue.css">
+
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body class="hold-transition login-page">
+	<div class="login-box">
+		<div class="login-logo">
+			<a ><b>SGIM-</b>PK</a>
+		</div>
+		<!-- /.login-logo -->
+		<div class="login-box-body">
+			<p class="login-box-msg">Ingresa tu usuario e inicia sesión</p>
+
+			<form method="post" method="post" action="/?md=session&e=in">
+				<div class="form-group has-feedback">
+					<input type="text" class="form-control" name="userName" id="userName" placeholder="Nombre de Usuario">
+					<span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+				</div>
+				<div class="form-group has-feedback">
+					<input type="password" class="form-control" name="password" id="password" placeholder="Contraseña">
+					<span class="glyphicon glyphicon-lock form-control-feedback"></span>
+				</div>
+				<div class="row">
+					<div class="col-xs-6">
+						<div class="checkbox icheck">
+							<label>
+								<input type="checkbox" name="recordar" id="recordar" value="1" checked="true"> Recordarme
+							</label>
+						</div>
+					</div>
+					<!-- /.col -->
+					<div class="col-xs-6">
+						<button type="submit" class="btn btn-primary btn-block btn-flat"
+						id="iniciarSesion">Iniciar sesión</button>
+					</div>
+					<!-- /.col -->
+				</div>
+			</form>
+			<!-- /.social-auth-links -->
+
+			<a href="#">¿Olvido su contraseña?</a><br>
+			<a href="register.html" class="text-center">Nuevo Usuario</a>
+
+		</div>
+		<!-- /.login-box-body -->
+	</div>
+	<!-- /.login-box -->
+
+	<!-- jQuery -->
+	<script src="plugins/jquery-3.2.1/jquery-3.2.1.min.js"></script>
+
+	<!-- Bootstrap Core JavaScript -->
+	<script src="plugins/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+	<!-- iCheck -->
+	<script src="plugins/iCheck/icheck.min.js"></script>
+	<script>
+		$(function () {
+			$('#recordar').iCheck({
+				checkboxClass: 'icheckbox_square-blue',
+				radioClass: 'iradio_square-blue',
+				increaseArea: '20%' // optional
+			});
+		});
+	</script>
+</body>
+</html>

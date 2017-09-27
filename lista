@@ -1,0 +1,20 @@
+-> ctrl que reciva y retorne varias peticiones.
+
+-> ctrl que reciva y retorne la cantidad de datos segun la peticion.
+
+-> mejor control de los perfiles y sus privilegios tanto en la bd y el ctrl.
+
+-> base de datos que maneje multiples idiomas.
+
+-> almacenar en memoria las paginas correspondiente al perfil asociado.
+
+-> hacer un router del lado del servido y del cliente.
+
+-> descargar: "https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" e importar al proyecto
+ -> descargar: "https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic" e importar al proyecto
+
+-> descargar: jQuery UI
+
+-> descargar: "https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"
+
+-> descargar: "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/moment.min.js"

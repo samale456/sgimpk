@@ -1,0 +1,473 @@
+<!-- Content Header (Page header) -->
+
+<section class="content-header">
+	<h1>
+		PAÍS
+	</h1>
+	<ol class="breadcrumb">
+		<li><a href="#"><i class="fa fa-wrench"></i> Configuraciones </a></li>
+		<li class="active"> Localización </li>
+	</ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+	<div class="box box-default">
+		<div class="box-header with-border">
+			<h3 class="box-title">CATÁLOGO</h3>
+
+			<div class="box-tools pull-right">
+				<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+			</div>
+		</div>
+		<!-- /.box-header -->
+		<div class="box-body">
+						<div class="row">
+				<div class="col-md-12">
+					<br>
+				</div>
+			 <div  class="col-md-2 pull-right" > <!-- BOTON MODALS -->
+					<button  id="agregarPais" type="button" class="btn btn-block btn-success" data-toggle= "modal" data-target = "#ventanaPais">Agregar Nuevo</button>
+
+				</div> <!-- BOTON MODALS -->
+				<div  class="col-md-2 pull-right" > <!-- BOTON MODALS -->
+					<input id="generarReporte" type="submit" value="Generar PDF" onclick = "location='asset/report/reporte_pais.php'" class="btn btn-danger pull-right" style="margin-right: -25px;">
+				</div> <!-- BOTON -->
+		</div>
+		<div class="row">
+				<div class="col-md-12">
+					<br>
+				</div>
+		</div>
+		<div class ="row">
+				<div class="col-md-12">
+					<table id="catalogoPais" class="table table-bordered table-hover">
+						<thead>
+							<tr>
+								<th class="col-md-2">CÓDIGO</th>
+								<th class="col-md-2">NOMBRE</th>
+					<th class="col-md-2">ESTATUS</th>
+									<th class="col-md-1" id="accion">EDITAR</th>
+									<th class="col-md-1" id="accion">INACTIVAR</th>
+							</tr>
+						</thead>
+						<tbody>
+
+						</tbody>
+					</table>
+					<!-- /.form-group -->
+				</div>
+		</div>
+		<div class ="row">
+				<div class="col-md-12"> <!-- MODALS -->
+			<form id="paisForm" method="post" class="form-horizontal" onSubmit="return false;">
+					<div class="modal fade bs-example-modal-lg" id="ventanaPais" tabindex="-1" role="dialog" aria-labelledby="#myModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span></button>
+										<h4 class="modal-title">REGISTRAR PAÍS</h4>
+									</div>
+									<div class="modal-body">
+											<!-- Form Element sizes -->
+											<div class="box box-success">
+												<div class="box-header with-border">
+												</div>
+												<div class="box-body">
+													<div class="row">
+
+														<div class="col-md-12">
+							<label class="col-md-3 control-label">CÓDIGO</label>&nbsp;<font color='red'>(*)</font>
+															<div class="col-md-9 form-group ">
+								<input  class="form-control" id="codigo" name="numeros" style="text-transform:uppercase" type="text" maxlength="3" placeholder="Escriba el codigo del país">
+								</div>
+														</div>
+
+														<div class="col-md-12">
+							<label class="col-md-3 control-label">NOMBRE</label>&nbsp;<font color='red'>(*)</font>
+															<div class="col-md-9 form-group ">
+								<input  class="form-control" id="nombre" name="letras" style="text-transform:uppercase" type="text" maxlength="40" placeholder="Escriba el país">
+								</div>
+														</div>
+													
+													</div>   
+
+												 <div class="row">
+													<div class="col-md-12">
+														<div class="box box-default">
+
+															<!-- /.box-header -->
+
+															<div class="box">
+				<div class="box-header with-border">
+					<h3 class="box-title">Tips</h3>
+
+					<div class="box-tools pull-right">
+						<button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar">
+							<i class="fa fa-minus"></i></button>
+						<button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Cerrar">
+							<i class="fa fa-times"></i></button>
+					</div>
+				</div>
+				<div class="box-body">
+						Nota: los campos que poseen&nbsp;<font color='red'>(*)</font> son de caracter obligatorio...
+				</div>
+			 
+			</div>
+															<!-- /.box -->
+														</div>
+														<!-- /.col -->
+
+														<!-- /.col -->
+													</div>
+												</div>
+												<!-- /.box-body -->
+											</div>
+											<!-- /.box -->
+										</div>
+										<div class="modal-footer">
+						<input align="left" class="btn btn-default" type="Reset" value="Limpiar">
+											<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+											<button id="registrar" type="submit" class="btn btn-primary" data-dismiss="modal" >Guardar</button>
+										</div>
+								</div>
+								<!-- /.modal-content -->
+							</div>
+							<!-- /.modal-dialog -->
+						</div> <!-- MODALS -->
+					</div>
+					<!-- /.registrar-modal -->
+			<!-- Comienzo de Modals Modificar -->
+			<div class="modal fade bs-example-modal-lg" id="modificarPais" tabindex="-1" role="dialog" aria-labelledby="#myModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">&times;</span></button>
+										<h4 class="modal-title">MODIFICAR PAÍS</h4>
+									</div>
+									<div class="modal-body">
+											<!-- Form Element sizes -->
+											<input type="hidden" id="codigo_pais" readonly>
+											<div class="box box-success">
+												<div class="box-header with-border">
+												</div>
+												<div class="box-body">
+													<div class="row">
+														<div class="col-md-12">
+
+								<label class="col-md-3 control-label">CÓDIGO</label>&nbsp;<font color='red'>(*)</font>
+															<div class="col-md-9 form-group ">
+																<input  class="form-control" id="codigo_modPais" name="numeros" type="text" maxlength="3" placeholder="Escriba el codigo del país" style="text-transform:uppercase">
+									</div>
+															</div>
+
+								<label class="col-md-3 control-label">NOMBRE</label>&nbsp;<font color='red'>(*)</font>
+															<div class="col-md-9 form-group ">
+																<input  class="form-control" id="nombre_modPais" name="letras" type="text" maxlength="40" placeholder="Escriba el pais" style="text-transform:uppercase">
+									</div>
+															</div>
+														</div>   
+
+																		<div class="row">
+																			<div class="col-md-12">
+																				<label class="col-md-3 control-label">ESTATUS</label>&nbsp;<font color='red'>(*)</font>
+																				<div class="form-group col-md-9">
+																					<select id="Modstatus" class="form-control select2" style="width: 100%;">
+																					<option value="0" selected="true">SELECCIONE ESTATUS</option>
+																					<option value="A" selected="true">ACTIVO</option>
+																					<option value="I" selected="true">INACTIVO</option>
+																					</select>
+																				</div>
+																				<!-- /.form-group -->
+																			</div>
+																		</div>
+
+												 <div class="row">
+													<div class="col-md-12">
+														<div class="box box-default">
+
+															<!-- /.box-header -->
+
+													<div class="box">
+				<div class="box-header with-border">
+					<h3 class="box-title">Tips</h3>
+
+					<div class="box-tools pull-right">
+						<button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Minimizar">
+							<i class="fa fa-minus"></i></button>
+						<button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Cerrar">
+							<i class="fa fa-times"></i></button>
+					</div>
+				</div>
+				<div class="box-body">
+						Nota: los campos que poseen&nbsp;<font color='red'>(*)</font> son de caracter obligatorio...
+				</div>
+			 
+			</div>
+															<!-- /.box -->
+														</div>
+														<!-- /.col -->
+
+														<!-- /.col -->
+													</div>
+												</div>
+												<!-- /.box-body -->
+											</div>
+											<!-- /.box -->
+										</div>
+										<div class="modal-footer">
+					<input align="left" class="btn btn-default" type="Reset" value="Limpiar">
+											<button type="button" class="btn btn-default pull-left" data-dismiss="modal">Cerrar</button>
+											<button id="editar" type="submit" class="btn btn-primary" data-dismiss="modal" >Guardar</button>
+										</div>
+								</div>
+								<!-- /.modal-content -->
+							</div>
+							<!-- /.modal-dialog -->
+						</div> <!-- MODALS -->
+					</div>
+			<!-- /. modificar-modal -->
+		<!-- Comienzo de Modals INACTIVAR -->
+														<div class="modal fade bs-example-modal-lg" id="inactivarPais" tabindex="-1" role="dialog" aria-labelledby="#myModalLabel" aria-hidden="true">
+																<div class="modal-dialog modal-sm">
+																		<div class="modal-content">
+																				<div class="modal-header">
+																						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+																<span aria-hidden="true">&times;</span></button>
+																						<h4 class="modal-title">INACTIVAR PAÍS</h4>
+																				</div>
+																				<div class="modal-body">
+																						<!-- Form Element sizes -->
+																						<div class="box box-danger">
+																								<div class="box-header with-border">
+																								</div>
+																								<div class="box-body">
+																										<input type="hidden" id="codigo_pais" readonly> 
+													¿REALMENTE DESEA INACTIVAR?
+																										<!-- /.box-body -->
+																										<!-- /.box -->
+																								</div>
+																						</div>
+																				</div>
+																				<div class="modal-footer">
+																						<button type="button" class="btn btn-default pull-left" data-dismiss="modal">CANCELAR</button>
+																						<button id="inactivar" type="submit" class="btn btn-danger" data-dismiss="modal">ACEPTAR</button>
+																				</div>
+
+																				<!-- /.modal-content -->
+																		</div>
+																		<!-- /.modal-dialog -->
+																</div>
+																<!-- MODALS -->
+														</div>
+														<!-- /. inactivar-modal -->
+			</form>
+					</div>
+					<!-- /.modal -->
+				</div>
+				<!-- /.col -->
+			</div>
+			<!-- /.row -->
+		</div>
+		<!-- /.box-body -->
+	</div>
+	<!-- /.box -->
+</section>
+<!-- /.content -->
+<script type="text/javascript">
+//configuracion del datatable
+var tabla = $('#catalogoPais').DataTable({
+	"language": {
+		"lengthMenu": "Mostrar _MENU_ registros por páginas",
+		"zeroRecords": "No se encontraron registros",
+		"info": "Página _PAGE_ de _PAGES_",
+		"infoEmpty": "Mostrar 0 de 0",
+		"search": "Buscar: ",
+		"decimal": "",
+		"emptyTable": "No hay registros",
+		"infoFiltered": "(filtered from _MAX_ total entries)",
+		"infoPostFix": "",
+		"thousands": ",",
+		"loadingRecords": "Loading...",
+		"processing": "Processing...",
+		"paginate": {
+			"first": "Primera",
+			"last": "Ultima",
+			"next": "Siguiente",
+			"previous": "Previa"
+		},
+		"aria": {
+			"sortAscending": ": activate to sort column ascending",
+			"sortDescending": ": activate to sort column descending"
+		}
+	}
+});
+
+$(document).ready(function(){
+	
+	 $('#paisForm').bootstrapValidator({
+		//        live: 'disabled',
+		message: 'Este valor no es Valido',
+		feedbackIcons: {
+			valid: 'glyphicon glyphicon-ok',
+			invalid: 'glyphicon glyphicon-remove',
+			validating: 'glyphicon glyphicon-refresh'
+		},
+	excluded: ':disabled',
+		fields: {
+
+			letras: {
+				validators: {
+					notEmpty: {
+						message: 'Este campo no puede estar vacio'
+					},
+					regexp: {
+						regexp: /^[a-zA-ZÁÉÍÓÚáéíóú\s\.]+$/,
+						message: 'Este campo solo puede contener letras'
+					},
+					stringLength: {
+						max: 40,
+						message: 'Este campo debe contener un maximo de 40 caracteres'
+					}
+				}
+			},
+			numeros: {
+				validators: {
+					notEmpty: {
+						message: 'Este campo no puede estar vacio'
+					},
+					regexp: {
+						regexp: /^[0-9ÁÉÍÓÚáéíóú\s\.]+$/,
+						message: 'Este campo solo puede contener numeros'
+					},
+					stringLength: {
+						max: 3,
+						message: 'Este campo debe contener maximo 3 caracteres'
+					}
+				}
+			},
+
+		}
+	});
+	recargarCatalogoPais(tabla);
+
+			$('#registrar').click(function(){
+			$.ajax({
+				url: "src/post-data.php",
+				method: "POST",
+				async: true,
+				cache: false,
+				data: {
+				datos: {
+					codigo_pais: $('#codigo').val().toUpperCase(),
+					nombre_pais: $('#nombre').val().toUpperCase()
+				},
+				modulo: 'pais',
+				evento: 'register'
+				},
+				dataType: "json"
+			}).done(function(dataBack) {
+				alertify.success(dataBack.status);
+				tabla.clear();
+				recargarCatalogoPais(tabla);
+			}).fail(function( jqXHR, textStatus ) {
+				alertify.error( "Request failed: " + textStatus );
+			});
+		});
+
+		$(document).on('click', '#btn-editar',function (e) {
+			$('#paisForm').bootstrapValidator('resetForm', true);
+			id = $(this).data("id");
+			$.ajax({
+			url: "src/post-data.php",
+			method: "POST",
+			async: true,
+			cache: false,
+			data: {
+				datos: {
+				codigo_pais: id
+				},
+				modulo: 'pais',
+				evento: 'consult'
+			},
+			dataType: "json"
+			}).done(function(dataBack) {
+			$('#codigo_modPais').val(dataBack.codigo_pais);
+			$('#nombre_modPais').val(dataBack.nombre_pais);
+			$('#codigo_pais').val(dataBack.codigo_pais);
+			$('#Modstatus').val(dataBack.status_pais).trigger('change');
+				
+				if(dataBack.status_pais == 'I')
+					$("#Modstatus").removeAttr('disabled');
+				else
+					$('#Modstatus').attr('disabled', 'disabled');
+					
+			}).fail(function( jqXHR, textStatus ) {
+			alertify.error( "Request failed: " + textStatus );
+			});
+		});
+
+		$('#editar').click(function(){
+			$.ajax({
+			url: "src/post-data.php",
+			method: "POST",
+			async: true,
+			cache: false,
+			data: {
+				datos: {
+				codigo_pais: $('#codigo_pais').val().toUpperCase(),
+				nombre_pais: $('#nombre_modPais').val().toUpperCase(),
+				status_pais: $('#Modstatus').val()
+				},
+				modulo: 'pais',
+				evento: 'modify'
+			},
+			dataType: "json"
+			}).done(function(dataBack) {
+			alertify.success(dataBack.status);
+			tabla.clear();
+			recargarCatalogoPais(tabla);
+			}).fail(function( jqXHR, textStatus ) {
+			alertify.error( "Request failed: " + textStatus );
+			});
+		});
+
+		$(document).on('click', '#btn-inactivar', function(e) {
+						$('#codigo_pais').val($(this).data("id"));
+		});
+
+				$('#inactivar').click(function() {
+						$.ajax({
+								url: "src/post-data.php",
+								method: "POST",
+								async: true,
+								cache: false,
+								data: {
+										datos: {
+												codigo_pais: $('#codigo_pais').val()
+										},
+										modulo: 'pais',
+										evento: 'remove'
+								},
+								dataType: "json"
+						}).done(function(dataBack) {
+								alertify.success(dataBack.status);
+								tabla.clear();
+								recargarCatalogoPais(tabla);
+						}).fail(function(jqXHR, textStatus) {
+								alertify.error("Request failed: " + textStatus);
+						});
+				});
+
+		$('#agregarPais').click(function(){
+			$("#paisForm")[0].reset();
+			$('#paisForm').bootstrapValidator('resetForm', true);
+			$('#registrar').attr("disabled", true);
+		});
+
+
+});
+
+</script>
